@@ -32,15 +32,24 @@
         </el-row>
       </el-aside>
       <el-main>
-        <router-view></router-view>
+<!--        <router-view></router-view>-->
+        <my-table :option="option"></my-table>
       </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
+import MyTable from "./myTable";
+import option from '../lib/options/studentsOptions'
 export default {
-  name: "mainPage"
+  name: "mainPage",
+  components: {MyTable},
+  data(){
+    return{
+      option:option
+    }
+  }
 }
 </script>
 
@@ -48,7 +57,7 @@ export default {
 .el-header{
   text-align: center;
   line-height: 60px;
-  font-size: 20px;
+  font-size: 30px;
   background:#545c64;
   color: aliceblue;
 }
