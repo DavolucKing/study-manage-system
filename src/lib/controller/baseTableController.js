@@ -4,7 +4,7 @@ import StudentsOptions from "../options/studentsOptions";
 class BaseTableController{
 
     constructor() {
-        this._tableData=StudentsOptions
+        this._tableData=StudentsOptions.pageData
     }
 
     _tableData = []
@@ -34,8 +34,9 @@ class BaseTableController{
     searchTableItem(value){
         // this.searchData={class:value}
         if (value === ''){
-            this._tableData=StudentsOptions
+            this._tableData=StudentsOptions.pageData
         }else{
+            this._tableData=StudentsOptions.pageData
             this.tableData.forEach((item,index)=>{
                 for(let i in item){
                     if(item[i]==value){
@@ -51,6 +52,7 @@ class BaseTableController{
             })
             this.tableData=[]
             this.tableData = this.searchData
+            this.searchData=[]
         }
     }
 

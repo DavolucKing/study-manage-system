@@ -1,5 +1,13 @@
-const studentsOptions=[
-    {
+const studentsOptions={
+    title:'学生信息',
+    defaultData:{
+        id:'',
+        name:'',
+        sex:'',
+        class:''
+    },
+    dialogOption:{},
+    pageData:[{
         id:'00001',
         name:'王一',
         sex:'男',
@@ -46,6 +54,6 @@ const studentsOptions=[
         name:'王一',
         sex:'男',
         class:'1901',
-    },
-]
+    }]
+}
 export default studentsOptions

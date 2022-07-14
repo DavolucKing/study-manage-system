@@ -2,7 +2,7 @@
   <el-container class="my-table">
     <el-header class="el-header">
       <div >
-        {{title}}
+        {{option.title}}
       </div>
     </el-header>
     <el-main class="el-main">
@@ -31,7 +31,7 @@
       <el-input class="el-input" v-model="searchValue" ></el-input>
       <el-button type="primary" class="btn2" @click="search(searchValue)">搜索</el-button>
       <el-button type="primary" class="btn1" @click="dialogFormVisible=true">新增</el-button>
-      <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
+      <el-dialog :title="option.title" :visible.sync="dialogFormVisible">
         <el-form :model="form">
           <el-form-item label="学号" :label-width="formLabelWidth">
             <el-input v-model="form.id" autocomplete="off"></el-input>
@@ -66,23 +66,17 @@ export default {
     return{
       controller:new BaseTableController(this.option),
       searchValue:'',
-      title:'学生信息',
       dialogFormVisible:false,
       dialogFormFlag:false,
       myIndex:0,
-      form: {
-        id:'',
-        name: '',
-        sex:'',
-        class:''
-      },
+      form:{},
       formLabelWidth: '120px'
     }
   },
   computed:{
     tableData() {
       return this.controller.tableData
-    }
+    },
   },
   methods: {
     search(value){
@@ -114,12 +108,7 @@ export default {
         // this.tableData.splice(this.myIndex,0,this.form)
         this.controller.editTableItem(this.myIndex,this.form)
         this.dialogFormFlag = false
-        this.form={
-          id:'',
-          name: '',
-          sex:'',
-          class:''
-        }
+        this.form=this.option.defaultData
       }
     }
   }
