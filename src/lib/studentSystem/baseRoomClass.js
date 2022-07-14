@@ -10,22 +10,29 @@ class baseRoomClass{
      * 教学楼号
      * @private
      */
-    _buildingNumber;
+    _buildingNumber = 0;
     /**
      * 房间号
      * @private
      */
-    _roomNumber;
+    _roomNumber = 0;
     /**
      * 可容纳人数
      * @private
      */
-    _containNumber;
+     _containNumber = 0;
     /**
      * 使用班级
      * @private
      */
-    _occupyClassNumber;
+    _occupyClassNumber = 0;
+
+    constructor(buildingNumber,roomNumber,containNumber,occupyClassNumber) {
+        this._buildingNumber =buildingNumber;
+        this._roomNumber = roomNumber;
+        this._containNumber = containNumber;
+        this._occupyClassNumber = occupyClassNumber;
+    }
 
     get buildingNumber() {
         return this._buildingNumber;

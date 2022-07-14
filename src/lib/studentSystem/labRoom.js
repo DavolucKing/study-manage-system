@@ -13,14 +13,17 @@ class labRoom extends baseRoomClass {
      * 用途（化学实验室、机房等）
      * @private
      */
-    _usePurpose;
+    _usePurpose = '';
     /**
      * 管理员
      * @private
      */
-    _labManager;
-    constructor() {
+    _labManager = {};
+
+    constructor(usePurpose, labManager) {
         super();
+        this._usePurpose = usePurpose;
+        this._labManager = labManager;
     }
 
     get usePurpose() {
