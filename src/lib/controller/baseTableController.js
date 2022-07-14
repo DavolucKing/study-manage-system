@@ -9,7 +9,6 @@ class BaseTableController{
 
     _tableData = []
     _searchData =[]
-    _searchValue=''
 
     get tableData(){
         return this._tableData
@@ -19,13 +18,6 @@ class BaseTableController{
         this._tableData= value
     }
 
-    get searchValue(){
-        return this._searchValue
-    }
-
-    set searchValue(value){
-        this._searchValue= value
-    }
 
     get searchData(){
         return this._searchData
@@ -62,7 +54,18 @@ class BaseTableController{
         }
     }
 
+    deleteTableItem(index){
+        this.tableData.splice(index,1)
+    }
 
+    addTableItem(obj){
+        this.tableData.push(obj)
+    }
+
+    editTableItem(index,obj){
+        this.tableData.splice(index,1)
+        this.tableData.splice(index,0,obj)
+    }
 
 }
 
