@@ -1,18 +1,29 @@
+/**
+ * @description 房间类
+ *
+ * @date 2022/7/14 10:40 上午
+ * @author 赵常畅
+ * @version 1.0
+ */
 class baseRoomClass{
     /**
-     * private 所在楼号
+     * 教学楼号
+     * @private
      */
     _buildingNumber;
     /**
-     * private 所在房间号
+     * 房间号
+     * @private
      */
     _roomNumber;
     /**
-     * private 容纳人数
+     * 可容纳人数
+     * @private
      */
     _containNumber;
     /**
-     * private 占用班级号
+     * 使用班级
+     * @private
      */
     _occupyClassNumber;
 
@@ -42,4 +53,4 @@ class baseRoomClass{
     }
 }
 
-export default {baseRoomClass}
+export default baseRoomClass
