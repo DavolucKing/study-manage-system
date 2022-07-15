@@ -1,6 +1,6 @@
 <template>
   <div id="search">
-    <el-select class="search-select" v-model="column" clearable placeholder="搜索项">
+    <el-select v-if="selectRequired" class="search-select" v-model="column" clearable placeholder="搜索项">
       <el-option
         v-for="(item, index) in options"
         :key="index"
@@ -22,6 +22,11 @@ export default {
       type: Array,
       required: true
     },
+    selectRequired: {
+      type: Boolean,
+      required: false,
+      default: true
+    }
   },
   data() {
     return {
