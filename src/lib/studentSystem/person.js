@@ -8,78 +8,83 @@
 
 class Person {
 
-  /**
-   * 姓名
-   * @private
-   */
-  _personName;
+    /**
+     * 姓名
+     * @private
+     */
+    _personName = '';
 
-  /**
-   * 性别
-   * @private
-   */
-  _sex;
+    /**
+     * 性别
+     * @private
+     */
+    _sex = '';
 
-  /**
-   * 出生日期
-   * @private
-   */
-  _birth;
+    /**
+     * 出生日期
+     * @private
+     */
+    _birth = null;
 
-  /**
-   * 手机号
-   * @private
-   */
-  _phone;
+    /**
+     * 手机号
+     * @private
+     */
+    _phone = '';
 
-  /**
-   * 住址
-   * @private
-   */
-  _address;
+    /**
+     * 住址
+     * @private
+     */
+    _address = '';
 
-  constructor() {
-  }
+    constructor(personName, sex, birth, phone, address) {
+        this._personName = personName;
+        this._sex = sex;
+        this._birth = birth;
+        this._phone = phone;
+        this._address = address;
+    }
 
-  set personName(personName) {
-    this._personName = personName;
-  }
+    set personName(personName) {
+        this._personName = personName;
+    }
 
-  get personName() {
-    return this._personName;
-  }
+    get personName() {
+        return this._personName;
+    }
 
-  set sex(sex) {
-    this._sex = sex;
-  }
+    set sex(sex) {
+        this._sex = sex;
+    }
 
-  get sex() {
-    return this._sex;
-  }
+    get sex() {
+        return this._sex;
+    }
 
-  set birth(birth) {
-    this._birth = birth;
-  }
+    set birth(birth) {
+        this._birth = birth;
+    }
 
-  get birth() {
-    return this._birth;
-  }
+    get birth() {
+        return this._birth;
+    }
 
-  set phone(phone) {
-    this._phone = phone;
-  }
+    set phone(phone) {
+        this._phone = phone;
+    }
 
-  get phone() {
-    return this._phone;
-  }
+    get phone() {
+        return this._phone;
+    }
 
-  set address(address) {
-    this._address = address;
-  }
+    set address(address) {
+        this._address = address;
+    }
 
-  get address() {
-    return this._address;
-  }
+    get address() {
+        return this._address;
+    }
 
 }
 

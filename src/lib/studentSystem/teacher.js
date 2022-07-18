@@ -10,51 +10,54 @@ import Employee from "./employee"
 
 class Teacher extends Employee {
 
-  /**
-   * 职称
-   * @private
-   */
-  _professionalTitle;
+    /**
+     * 职称
+     * @private
+     */
+    _professionalTitle = '';
 
-  /**
-   * 学院
-   * @private
-   */
-  _college;
+    /**
+     * 学院
+     * @private
+     */
+    _college = '';
 
-  /**
-   * 课程/科目
-   * @private
-   */
-  _course;
+    /**
+     * 课程/科目
+     * @private
+     */
+    _course = '';
 
-  constructor() {
-    super();
-  }
+    constructor(professionalTitle, college, course) {
+        super();
+        this._professionalTitle = professionalTitle;
+        this._college = college;
+        this._course = course;
+    }
 
-  set professionalTitle(professionalTitle) {
-    this._professionalTitle = professionalTitle;
-  }
+    set professionalTitle(professionalTitle) {
+        this._professionalTitle = professionalTitle;
+    }
 
-  get professionalTitle() {
-    return this._professionalTitle;
-  }
+    get professionalTitle() {
+        return this._professionalTitle;
+    }
 
-  set college(college) {
-    this._college = college;
-  }
+    set college(college) {
+        this._college = college;
+    }
 
-  get college() {
-    return this._college;
-  }
+    get college() {
+        return this._college;
+    }
 
-  set course(course) {
-    this._course = course;
-  }
+    set course(course) {
+        this._course = course;
+    }
 
-  get course() {
-    return this._course;
-  }
+    get course() {
+        return this._course;
+    }
 
 }
 
