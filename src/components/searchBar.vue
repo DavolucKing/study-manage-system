@@ -1,11 +1,11 @@
 <template>
   <div id="search">
-    <el-select v-if="selectRequired" class="search-select" v-model="column" clearable placeholder="搜索项">
+    <el-select v-if="selectRequired" class="search-select" v-model="selectValue" clearable placeholder="搜索项">
       <el-option
         v-for="(item, index) in options"
-        :key="index"
-        :label="item"
-        :value="item">
+        :key="index.column"
+        :label="item.label"
+        :value="item.label">
       </el-option>
     </el-select>
     <el-input class="search-input" v-model="searchValue" @keyup.enter.native="onSearch" />
@@ -26,22 +26,35 @@ export default {
       type: Boolean,
       required: false,
       default: true
+    },
+    options: {
+      type: Array,
+      required: false,
+      default: () => [],
     }
   },
   data() {
     return {
       searchValue: '',
-      column: ''
+      selectValue: ''
     };
   },
-  computed: {
-    options() {
-      return Object.keys(this.tableData[0]);
+  created() {
+    if(this.options.length == 0) {
+      Object.keys(this.tableData[0]).forEach(key => {
+        this.options.push({column: key, label: key});
+      });
     }
   },
   methods: {
     onSearch() {
-      const searchData = new SearchBarController().tableSearch(this.tableData, { column: this.column,
+      let column = '';
+      this.options.forEach((option) => {
+        if(option.label == this.selectValue) {
+          column = option.column;
+        }
+      });
+      const searchData = new SearchBarController().tableSearch(this.tableData, { column,
         value: this.searchValue});
       this.$emit('search', searchData);
     }
