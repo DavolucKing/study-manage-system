@@ -1,12 +1,13 @@
-import StudentsOptions from "../options/studentsOptions";
+// import StudentsOptions from "../options/studentsOptions";
 
 
 class BaseTableController{
 
-    constructor() {
-        this._tableData=StudentsOptions.pageData
+    constructor(props) {
+        this._tableData=props.pageData
+        this._props = props
     }
-
+    _props=[]
     _tableData = []
     _searchData =[]
 
@@ -16,6 +17,14 @@ class BaseTableController{
 
     set tableData(value){
         this._tableData= value
+    }
+
+    get props(){
+        return this._props
+    }
+
+    set props(value){
+        this._props= value
     }
 
 
@@ -34,9 +43,9 @@ class BaseTableController{
     searchTableItem(value){
         // this.searchData={class:value}
         if (value === ''){
-            this._tableData=StudentsOptions.pageData
+            this._tableData= this.props.pageData
         }else{
-            this._tableData=StudentsOptions.pageData
+            this._tableData= this.props.pageData
             this.tableData.forEach((item,index)=>{
                 for(let i in item){
                     if(item[i]==value){

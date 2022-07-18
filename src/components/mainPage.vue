@@ -9,25 +9,26 @@
       <el-aside width="200px" class="el-aside">
         <el-row style="height: 670px">
           <el-col :span="24">
-            <el-menu
-                default-active="2"
-                class="el-menu-vertical-demo"
-                background-color="#545c64"
-                text-color="#fff"
-                active-text-color="#ffd04b" style="height: 670px">
-              <el-menu-item index="1">
-                <i class="el-icon-location"></i>
-                <span slot="title">学生管理</span>
-              </el-menu-item>
-              <el-menu-item index="2">
-                <i class="el-icon-location"></i>
-                <span slot="title">教师管理</span>
-              </el-menu-item>
-              <el-menu-item index="3">
-                <i class="el-icon-location"></i>
-                <span slot="title">课程管理</span>
-              </el-menu-item>
-            </el-menu>
+            <my-el-menu :menu-data="menuData"></my-el-menu>
+<!--            <el-menu-->
+<!--                default-active="1"-->
+<!--                class="el-menu-vertical-demo"-->
+<!--                background-color="#545c64"-->
+<!--                text-color="#fff"-->
+<!--                active-text-color="#ffd04b" style="height: 670px">-->
+<!--              <el-menu-item index="1">-->
+<!--                <i class="el-icon-location"></i>-->
+<!--                <span slot="title">学生管理</span>-->
+<!--              </el-menu-item>-->
+<!--              <el-menu-item index="2">-->
+<!--                <i class="el-icon-location"></i>-->
+<!--                <span slot="title">教师管理</span>-->
+<!--              </el-menu-item>-->
+<!--              <el-menu-item index="3">-->
+<!--                <i class="el-icon-location"></i>-->
+<!--                <span slot="title">课程管理</span>-->
+<!--              </el-menu-item>-->
+<!--            </el-menu>-->
           </el-col>
         </el-row>
       </el-aside>
@@ -42,12 +43,15 @@
 <script>
 import MyTable from "./myTable";
 import option from '../lib/options/studentsOptions'
+import menuData from "../lib/options/menuData";
+import MyElMenu from "./myElMenu";
 export default {
   name: "mainPage",
-  components: {MyTable},
+  components: {MyElMenu, MyTable},
   data(){
     return{
-      option:option
+      option:option,
+      menuData:menuData
     }
   }
 }

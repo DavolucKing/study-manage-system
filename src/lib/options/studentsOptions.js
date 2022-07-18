@@ -6,7 +6,6 @@ const studentsOptions={
         sex:'',
         class:''
     },
-    dialogOption:{},
     pageData:[{
         id:'00001',
         name:'王一',

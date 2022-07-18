@@ -6,25 +6,27 @@
       </div>
     </el-header>
     <el-main class="el-main">
-      <el-table
-          :data="tableData"
-          border
-          style="width: 100%">
-        <el-table-column
-            v-for="(value,key) in tableData[0]" :key="key"
-            :prop="key"
-            :label="key"
-            width="240">
-        </el-table-column>
-        <el-table-column
-            fixed="right"
-            label="操作">
-          <template slot-scope="scope">
-            <el-button  type="text" @click="handleEdit(scope.$index, scope.row)">修改</el-button>
-            <el-button type="text" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
-          </template>
-        </el-table-column>
-      </el-table>
+      <my-el-table :tableData="tableData" @edit="handleEdit" @delete="handleDelete">
+      </my-el-table>
+<!--      <el-table-->
+<!--          :data="tableData"-->
+<!--          border-->
+<!--          style="width: 100%">-->
+<!--        <el-table-column-->
+<!--            v-for="(value,key) in tableData[0]" :key="key"-->
+<!--            :prop="key"-->
+<!--            :label="key"-->
+<!--            width="240">-->
+<!--        </el-table-column>-->
+<!--        <el-table-column-->
+<!--            fixed="right"-->
+<!--            label="操作">-->
+<!--          <template slot-scope="scope">-->
+<!--            <el-button  type="text" @click="handleEdit(scope.$index, scope.row)">修改</el-button>-->
+<!--            <el-button type="text" @click="handleDelete(scope.$index, scope.row)">删除</el-button>-->
+<!--          </template>-->
+<!--        </el-table-column>-->
+<!--      </el-table>-->
 
     </el-main>
     <el-footer class="el-footer">
@@ -32,21 +34,22 @@
       <el-button type="primary" class="btn2" @click="search(searchValue)">搜索</el-button>
       <el-button type="primary" class="btn1" @click="dialogFormVisible=true">新增</el-button>
       <el-dialog :title="option.title" :visible.sync="dialogFormVisible">
-        <el-form :model="form">
-          <el-form-item label="学号" :label-width="formLabelWidth">
-            <el-input v-model="form.id" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="姓名" :label-width="formLabelWidth">
-            <el-input v-model="form.name" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="性别" :label-width="formLabelWidth">
-            <el-radio v-model="form.sex" label="男">男</el-radio>
-            <el-radio v-model="form.sex" label="女">女</el-radio>
-          </el-form-item>
-          <el-form-item label="班级" :label-width="formLabelWidth">
-            <el-input v-model="form.class" autocomplete="off"></el-input>
-          </el-form-item>
-        </el-form>
+        <my-form :option="formOptions"></my-form>
+<!--        <el-form :model="form">-->
+<!--          <el-form-item label="学号" :label-width="formLabelWidth">-->
+<!--            <el-input v-model="form.id" autocomplete="off"></el-input>-->
+<!--          </el-form-item>-->
+<!--          <el-form-item label="姓名" :label-width="formLabelWidth">-->
+<!--            <el-input v-model="form.name" autocomplete="off"></el-input>-->
+<!--          </el-form-item>-->
+<!--          <el-form-item label="性别" :label-width="formLabelWidth">-->
+<!--            <el-radio v-model="form.sex" label="男">男</el-radio>-->
+<!--            <el-radio v-model="form.sex" label="女">女</el-radio>-->
+<!--          </el-form-item>-->
+<!--          <el-form-item label="班级" :label-width="formLabelWidth">-->
+<!--            <el-input v-model="form.class" autocomplete="off"></el-input>-->
+<!--          </el-form-item>-->
+<!--        </el-form>-->
         <div slot="footer" class="dialog-footer">
           <el-button @click="dialogFormVisible = false">取 消</el-button>
           <el-button type="primary" @click="handleAdd(myIndex)">确 定</el-button>
@@ -58,9 +61,12 @@
 
 <script>
 import BaseTableController from "../lib/controller/baseTableController";
-
+import MyElTable from "./myElTable";
+import MyForm from "./formComponents/myForm";
+import formOptions from "../lib/options/formOptions";
 export default {
   name: "myTable",
+  components: { MyForm,MyElTable},
   props:['option'],
   data(){
     return{
@@ -70,7 +76,8 @@ export default {
       dialogFormFlag:false,
       myIndex:0,
       form:{},
-      formLabelWidth: '120px'
+      formLabelWidth: '120px',
+      formOptions:formOptions
     }
   },
   computed:{
