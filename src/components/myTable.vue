@@ -34,7 +34,7 @@
       <el-button type="primary" class="btn2" @click="search(searchValue)">搜索</el-button>
       <el-button type="primary" class="btn1" @click="dialogFormVisible=true">新增</el-button>
       <el-dialog :title="option.title" :visible.sync="dialogFormVisible">
-        <my-form :option="formOptions"></my-form>
+        <my-form :option="option.formData" @setFormValue="setFormValue"></my-form>
 <!--        <el-form :model="form">-->
 <!--          <el-form-item label="学号" :label-width="formLabelWidth">-->
 <!--            <el-input v-model="form.id" autocomplete="off"></el-input>-->
@@ -52,7 +52,7 @@
 <!--        </el-form>-->
         <div slot="footer" class="dialog-footer">
           <el-button @click="dialogFormVisible = false">取 消</el-button>
-          <el-button type="primary" @click="handleAdd(myIndex)">确 定</el-button>
+          <el-button type="primary" @click="handleAdd()">确 定</el-button>
         </div>
       </el-dialog>
     </el-footer>
@@ -63,7 +63,6 @@
 import BaseTableController from "../lib/controller/baseTableController";
 import MyElTable from "./myElTable";
 import MyForm from "./formComponents/myForm";
-import formOptions from "../lib/options/formOptions";
 export default {
   name: "myTable",
   components: { MyForm,MyElTable},
@@ -76,8 +75,6 @@ export default {
       dialogFormFlag:false,
       myIndex:0,
       form:{},
-      formLabelWidth: '120px',
-      formOptions:formOptions
     }
   },
   computed:{
@@ -86,11 +83,22 @@ export default {
     },
   },
   methods: {
+    setFormValue(value) {
+      this.form = value
+      console.log(value)
+    },
     search(value){
       this.controller.searchTableItem(value)
     },
     handleEdit(index, row) {
       console.log(index, row);
+      this.option.formData.itemList.forEach(item=>{
+        for(let key in row){
+          if(key == item.option.name){
+            item.option.value = row[key]
+          }
+        }
+      })
       this.form = row
       this.myIndex = index
       this.dialogFormFlag = true
@@ -104,6 +112,9 @@ export default {
           })
           .catch(() => {});
     },
+    // handleAdd(){
+    //   this.controller.handleAdd()
+    // }
     handleAdd(){
       this.dialogFormVisible = false
       if(this.dialogFormFlag == false){
@@ -115,8 +126,11 @@ export default {
         // this.tableData.splice(this.myIndex,0,this.form)
         this.controller.editTableItem(this.myIndex,this.form)
         this.dialogFormFlag = false
-        this.form=this.option.defaultData
+        this.form={}
       }
+      this.option.formData.itemList.forEach(item=>{
+        item.option.value = ''
+      })
     }
   }
 }

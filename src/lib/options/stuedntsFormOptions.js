@@ -8,9 +8,10 @@ const studentsFormOptions={
     labelWidth : '120px',
     itemList: [
         {
-            name:'学号',
+            name:'id',
             type:'my-input',
             option:{
+                name:'id',
                 type:'text',
                 value:'',
                 placeholder:'请输入学号',
@@ -20,9 +21,10 @@ const studentsFormOptions={
             }
         },
         {
-            name:'姓名',
+            name:'name',
             type:'my-input',
             option:{
+                name:'name',
                 type:'text',
                 value:'',
                 placeholder:'请输入姓名',
@@ -32,9 +34,10 @@ const studentsFormOptions={
             }
         },
         {
-            name:'性别',
+            name:'sex',
             type:'my-radio',
             option:{
+                name:'sex',
                 value:'',
                 border:true,
                 itemList:[
@@ -50,9 +53,10 @@ const studentsFormOptions={
             }
         },
         {
-            name:'班级',
+            name:'class',
             type:'my-input',
             option:{
+                name:'class',
                 type:'text',
                 value:'',
                 placeholder:'请输入班级',

@@ -1,14 +1,22 @@
+
+
 const menuData ={
-    defaultActive:0,
+    defaultActive:'1',
     itemList:[
         {
-            title:'学生信息'
+            index:'1',
+            title:'学生信息',
+            path:'/students'
         },
         {
-            title:'教师信息'
+            index:'2',
+            title:'教师信息',
+            path: '/teachers'
         },
         {
-            title:'课程信息'
+            index:'3',
+            title:'课程信息',
+            path: '/course'
         },
     ]
 }

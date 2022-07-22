@@ -1,4 +1,4 @@
-// import StudentsOptions from "../options/studentsOptions";
+
 
 
 class BaseTableController{
@@ -38,6 +38,10 @@ class BaseTableController{
 
     getObjectPropValue(obj,key){
         return obj[key]
+    }
+
+    handleAdd(){
+
     }
 
     searchTableItem(value){

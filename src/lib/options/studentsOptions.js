@@ -1,11 +1,10 @@
+import studentsFormOptions from "./stuedntsFormOptions";
+
+
+
 const studentsOptions={
     title:'学生信息',
-    defaultData:{
-        id:'',
-        name:'',
-        sex:'',
-        class:''
-    },
+    formData:studentsFormOptions,
     pageData:[{
         id:'00001',
         name:'王一',

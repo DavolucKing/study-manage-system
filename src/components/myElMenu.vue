@@ -5,7 +5,7 @@
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b" style="height: 670px">
-    <el-menu-item v-for="(item,index) in menuData.itemList" :key="index" :index="index">
+    <el-menu-item v-for="(item,index) in menuData.itemList" :key="index" :index="item.index" @click="menuChange(item)">
       <i class="el-icon-location"></i>
       <span slot="title">{{ item.title }}</span>
     </el-menu-item>
@@ -15,7 +15,13 @@
 <script>
 export default {
   name: "myElMenu",
-  props:['menuData']
+  props:['menuData'],
+  methods:{
+    menuChange(item){
+      let path = item.path
+      this.$emit('menuChange',path)
+      }
+    }
 }
 </script>
 

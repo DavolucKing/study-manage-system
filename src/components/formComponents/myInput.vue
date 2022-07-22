@@ -5,14 +5,21 @@
             :placeholder="option.placeholder"
             :prefix-icon="option.prefixIcon"
             :suffix-icon="option.suffixIcon"
-            :style="option.style"></el-input>
+            :style="option.style"
+            @change="valueChange">
+  </el-input>
 </div>
 </template>
 
 <script>
 export default {
   name: "myInput",
-  props:['option']
+  props:['option'],
+  methods:{
+    valueChange(){
+      this.$emit('valueChange')
+    }
+  }
 }
 </script>
 

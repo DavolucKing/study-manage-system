@@ -9,7 +9,7 @@
       <el-aside width="200px" class="el-aside">
         <el-row style="height: 670px">
           <el-col :span="24">
-            <my-el-menu :menu-data="menuData"></my-el-menu>
+            <my-el-menu :menu-data="menuData" @menuChange="menuChange"></my-el-menu>
 <!--            <el-menu-->
 <!--                default-active="1"-->
 <!--                class="el-menu-vertical-demo"-->
@@ -33,25 +33,30 @@
         </el-row>
       </el-aside>
       <el-main>
-<!--        <router-view></router-view>-->
-        <my-table :option="option"></my-table>
+        <router-view></router-view>
+<!--        <my-table :option="option"></my-table>-->
       </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
-import MyTable from "./myTable";
-import option from '../lib/options/studentsOptions'
+import studentsOption from '../lib/options/studentsOptions'
 import menuData from "../lib/options/menuData";
 import MyElMenu from "./myElMenu";
+import router from "../router";
 export default {
   name: "mainPage",
-  components: {MyElMenu, MyTable},
+  components: {MyElMenu},
   data(){
     return{
-      option:option,
+      option:studentsOption,
       menuData:menuData
+    }
+  },
+  methods:{
+    menuChange(path) {
+      router.push(path)
     }
   }
 }

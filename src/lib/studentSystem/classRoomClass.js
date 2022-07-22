@@ -14,4 +14,4 @@ class classRoomClass extends baseRoomClass {
     }
 }
 
-export default baseRoomClass
+export default classRoomClass
