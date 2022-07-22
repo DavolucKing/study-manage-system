@@ -30,8 +30,9 @@
 
     </el-main>
     <el-footer class="el-footer">
-      <el-input class="el-input" v-model="searchValue" ></el-input>
-      <el-button type="primary" class="btn2" @click="search(searchValue)">搜索</el-button>
+      <search-bar :tableData="controller.tableData" @search="onSearch"></search-bar>
+      <!-- <el-input class="el-input" v-model="searchValue" ></el-input>
+      <el-button type="primary" class="btn2" @click="search(searchValue)">搜索</el-button> -->
       <el-button type="primary" class="btn1" @click="dialogFormVisible=true">新增</el-button>
       <el-dialog :title="option.title" :visible.sync="dialogFormVisible">
         <my-form :option="option.formData" @setFormValue="setFormValue"></my-form>
@@ -63,9 +64,10 @@
 import BaseTableController from "../lib/controller/baseTableController";
 import MyElTable from "./myElTable";
 import MyForm from "./formComponents/myForm";
+import searchBar from "./searchBar";
 export default {
   name: "myTable",
-  components: { MyForm,MyElTable},
+  components: { MyForm,MyElTable,searchBar},
   props:['option'],
   data(){
     return{
@@ -75,17 +77,25 @@ export default {
       dialogFormFlag:false,
       myIndex:0,
       form:{},
+      tableData:[]
     }
   },
-  computed:{
-    tableData() {
-      return this.controller.tableData
-    },
+  created() {
+    this.tableData = this.controller.tableData
   },
+//   computed:{
+//     tableData() {
+//       return this.controller.tableData
+//     },
+//   },
   methods: {
     setFormValue(value) {
       this.form = value
       console.log(value)
+    },
+    onSearch(searchData) {
+    console.log('onsearch');
+      this.tableData = searchData;
     },
     search(value){
       this.controller.searchTableItem(value)
