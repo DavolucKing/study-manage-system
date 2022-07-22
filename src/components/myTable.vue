@@ -23,7 +23,7 @@
       <el-dialog :title="option.title" :visible.sync="dialogFormVisible">
         <my-form :option="option.formData" @setFormValue="setFormValue"></my-form>
         <div slot="footer" class="dialog-footer">
-          <el-button @click="dialogFormVisible = false">取 消</el-button>
+          <el-button @click="handleCancel">取 消</el-button>
           <el-button type="primary" @click="handleAdd()">确 定</el-button>
         </div>
       </el-dialog>
@@ -65,7 +65,7 @@ export default {
       console.log(value)
     },
     onSearch(searchData) {
-    console.log('onsearch');
+    console.log('onSearch');
       this.tableData = searchData;
     },
     search(value){
@@ -112,6 +112,12 @@ export default {
       this.option.formData.itemList.forEach(item=>{
         item.option.value = ''
       })
+    },
+    handleCancel(){
+      this.option.formData.itemList.forEach(item=>{
+        item.option.value = ''
+      })
+      this.dialogFormVisible = false
     }
   }
 }
