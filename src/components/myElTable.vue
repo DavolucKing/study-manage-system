@@ -2,7 +2,7 @@
   <el-table
       :data="tableData"
       border
-      style="width: 100%">
+      style="width: 100%" height="100%">
     <el-table-column
         v-for="(value,key) in tableData[0]" :key="key"
         :prop="key"
