@@ -1,3 +1,9 @@
+/**
+* 功能描述：表格组件
+* @author Zya
+* @date 2022/7/18
+*/
+
 <template>
   <el-table
       :data="tableData"

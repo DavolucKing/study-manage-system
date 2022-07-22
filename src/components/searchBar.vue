@@ -1,3 +1,9 @@
+/**
+* 功能描述：搜索框组件
+* @author 崔孝楠
+* @date 2022/7/14
+*/
+
 <template>
   <div id="search">
     <el-select v-if="selectRequired" class="search-select" v-model="selectValue" clearable placeholder="搜索项">
@@ -54,8 +60,7 @@ export default {
           column = option.column;
         }
       });
-      const searchData = new SearchBarController().tableSearch(this.tableData, { column,
-        value: this.searchValue});
+      const searchData = new SearchBarController().tableSearch(this.tableData, { column, value: this.searchValue});
       this.$emit('search', searchData);
     }
   },

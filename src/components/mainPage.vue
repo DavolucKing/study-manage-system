@@ -1,3 +1,8 @@
+/**
+* 功能描述：管理系统主页面
+* @author Zya
+* @date 2022/7/16
+*/
 <template>
   <el-container>
     <el-header>
@@ -10,25 +15,6 @@
         <el-row style="height: 670px">
           <el-col :span="24">
             <my-el-menu :menu-data="menuData" @menuChange="menuChange"></my-el-menu>
-<!--            <el-menu-->
-<!--                default-active="1"-->
-<!--                class="el-menu-vertical-demo"-->
-<!--                background-color="#545c64"-->
-<!--                text-color="#fff"-->
-<!--                active-text-color="#ffd04b" style="height: 670px">-->
-<!--              <el-menu-item index="1">-->
-<!--                <i class="el-icon-location"></i>-->
-<!--                <span slot="title">学生管理</span>-->
-<!--              </el-menu-item>-->
-<!--              <el-menu-item index="2">-->
-<!--                <i class="el-icon-location"></i>-->
-<!--                <span slot="title">教师管理</span>-->
-<!--              </el-menu-item>-->
-<!--              <el-menu-item index="3">-->
-<!--                <i class="el-icon-location"></i>-->
-<!--                <span slot="title">课程管理</span>-->
-<!--              </el-menu-item>-->
-<!--            </el-menu>-->
           </el-col>
         </el-row>
       </el-aside>

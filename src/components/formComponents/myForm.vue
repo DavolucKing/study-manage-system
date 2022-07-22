@@ -1,3 +1,9 @@
+/**
+* 功能描述：表单组件
+* @author Zya
+* @date 2022/7/16
+*/
+
 <template>
   <el-form label-width="80px" :model="option.model" >
     <el-form-item v-for="(item,index) in option.itemList" :key="index" :label="item.name" :label-width="option.labelWidth">
@@ -22,14 +28,6 @@ export default {
     return {
       fromValue:{}
     }
-  },
-  computed:{
-    // fromValue(){
-    //   this.option.itemList.forEach(item=>{
-    //     this.fromValue[item.name]=item.option.value
-    //   })
-    //   return this.fromValue
-    // }
   },
   methods:{
     setFormValue(){

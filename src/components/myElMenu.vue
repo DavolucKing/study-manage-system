@@ -1,3 +1,9 @@
+/**
+* 功能描述：侧边栏组件
+* @author Zya
+* @date 2022/7/16
+*/
+
 <template>
   <el-menu
       :default-active="menuData.defaultActive"
