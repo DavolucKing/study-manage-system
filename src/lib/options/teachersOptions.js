@@ -53,8 +53,8 @@ const teachersOptions = {
             level:'高级'
         },
         {
-            name:'张一',
-            sex:'男',
+            name:'张二',
+            sex:'女',
             course:'高数',
             level:'高级'
         },

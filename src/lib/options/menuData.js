@@ -18,6 +18,11 @@ const menuData ={
             title:'课程信息',
             path: '/course'
         },
+        {
+            index: '4',
+            title:'数据图表',
+            path: '/chart'
+        }
     ]
 }
 export default menuData

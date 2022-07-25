@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import studentsTable from "./components/tableConponents/studentsTable";
 import teachersTable from "./components/tableConponents/teachersTable";
-import courseTable from "./components/tableConponents/courseTable"; // 引入vue-router
+import courseTable from "./components/tableConponents/courseTable";
+import myEcharts from "./components/myEcharts";
 
 Vue.use(Router) //使用vue-router
 
@@ -24,5 +25,9 @@ export default new Router({
             path:'/course',
             component:courseTable
         },
+        {
+            path:'/chart',
+            component:myEcharts
+        }
     ]
 })

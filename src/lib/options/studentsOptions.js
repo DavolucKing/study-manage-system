@@ -44,7 +44,7 @@ const studentsOptions={
     {
         id:'00001',
         name:'王一',
-        sex:'男',
+        sex:'女',
         class:'1901',
     },
     {

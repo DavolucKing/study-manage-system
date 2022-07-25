@@ -144,10 +144,6 @@ export default {
   border: 1px solid #EBEEF5;
 }
 
-.el-input{
-  width: 400px;
-  padding-right: 5px;
-}
 .btn1{
   height: 40px;
 }
